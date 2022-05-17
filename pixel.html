@@ -702,6 +702,50 @@
 </script>
 
 <script type="text/javascript">
+	RED.nodes.registerType("clear-matrix",
+	{
+		category: 'LED Matrix',
+		color: '#a6bbcf',
+		defaults:
+		{
+			name: {value:""},
+			matrix: {type: 'led-matrix', required:true},
+		},
+		inputs:1,
+		outputs:0,
+		icon: "refresh.png",
+		label: function ()
+		{
+			return this.name || "clear-matrix";
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="clear-matrix">
+	<div class="form-row">
+		<label for="node-config-input-matrix"><i class='fa fa-tag'></i> Display </label>
+		<input type="text" id="node-input-matrix"/>
+	</div>
+
+	<div class="form-row">
+		<label for="node-config-input-name"> <i class="icon-tag"></i> Name </label>
+		<input type="text" id="node-input-name" placeholder="Name">
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="clear-matrix">
+	<p> updates the display with vysnc <br><br>
+		nodes usually modify a in-memory buffer rather than pushing to the screen frame buffer itself, this node clears the in memory buffer to the frame buffer when injected
+
+</p>
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
 
 	function componentToHex(c)
 	{
